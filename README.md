@@ -1,5 +1,7 @@
 # discstore
 
+Har försökt göra en kopia på Discsport.se och dess startsida. Sidan är under progress och inte helt färdig än.
+
 ## Project setup
 ```
 npm install
