@@ -5,6 +5,8 @@
                 <img :src="currentImage"/>
             </div>
         </transition-group>
+        <button class="prev" @click="prev"><i class="glyphicon glyphicon-chevron-left"></i></button>
+        <button class="next" @click="next"><i class="glyphicon glyphicon-chevron-right"></i></button>
     </div>
 </template>
 
@@ -32,11 +34,19 @@ export default {
     mounted() {
         setInterval(() => {
             this.currentImg  = this.currentImg  + 1;
-        }, 3000);
+        }, 10000);
     },
     computed: {
         currentImage() {
             return this.imgList[Math.abs(this.currentImg) % this.imgList.length];
+        }
+    },
+    methods: {
+        next() {
+            this.currentImg += 1;
+        },
+        prev() {
+            this.currentImg -= 1;
         }
     }
 }
@@ -64,7 +74,12 @@ export default {
     position: relative;
     height: 590px;
     width: 100%;
-    border: 1px solid red;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    .img-slider {
+        height: 180px;
+    }
 }
 
 .img-slider img {
@@ -77,6 +92,14 @@ export default {
 
 img {
     max-width: 100%;
+}
+
+.prev {
+
+}
+
+.next {
+
 }
 
 </style>
